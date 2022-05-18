@@ -1,57 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import api, { getQuran } from '../../api';
+import React from 'react';
+import useFetch from '../../hooks/useFetch';
 import Item from '../Item/Item';
-
-interface IState {
-	datas: {
-		asma: {
-			ar: { short: string; long: string };
-			en: { short: string; long: string };
-			id: { short: string; long: string };
-			translation: { en: string; id: string };
-		};
-		ayahCount: number;
-		number: number;
-		preBismillah: { text: string; translation: string };
-		recitation: { full: string };
-		squence: number;
-		tafsir: { id: string; en: null | string };
-		type: { ar: string; id: string; en: string };
-	}[];
-}
+import { IState } from '../../types/intefaces';
 
 const Lists = () => {
-	const [datas, setDatas] = useState<IState['datas'] | null>();
-	const [isLoading, setLoading] = useState<boolean>(false);
-	const [isError, setError] = useState<string | null>();
+	const [datas, isLoading, error] = useFetch<IState['datas']>('/quran');
 
 	console.log(datas);
 
-	useEffect(() => {
-		const fetchData = async () => {
-			setLoading(true);
-			try {
-				const { data } = await api.get('/quran');
-				setDatas(data.data);
-			} catch (err: any) {
-				setError('ERROR');
-			}
-			setLoading(false);
-		};
-		fetchData();
-	}, []);
 	return (
 		<section>
 			<div className='container flex mx-auto flex-col gap-1 px-4 text-xs'>
-				{datas?.map((item) => (
-					<Item
-						key={item.number}
-						asma={item.asma}
-						ayahCount={item.ayahCount}
-						number={item.number}
-						type={item.type.en}
-					/>
-				))}
+				{isLoading ? (
+					<h1 className='text-center'>Loading ...</h1>
+				) : error ? (
+					<h1 className='text-center'>{error}</h1>
+				) : (
+					datas?.map((item) => (
+						<Item
+							key={item.number}
+							asma={item.asma}
+							ayahCount={item.ayahCount}
+							number={item.number}
+							type={item.type.en}
+						/>
+					))
+				)}
 			</div>
 		</section>
 	);

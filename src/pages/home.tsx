@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Items, Navbar, Search } from '../components';
-
 const Home = () => {
 	return (
 		<div className='home'>

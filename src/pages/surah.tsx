@@ -1,13 +1,14 @@
 import React from 'react';
-import { Navbar } from '../components';
+import { Navbar, Surah as CompSurah } from '../components';
 import { useParams } from 'react-router-dom';
 
 const Surah = () => {
 	const { surah } = useParams();
-	console.log(surah);
+
 	return (
 		<div>
-			<Navbar />
+			<Navbar back={true} />
+			<CompSurah surah={surah} />
 		</div>
 	);
 };

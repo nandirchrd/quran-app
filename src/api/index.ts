@@ -117,9 +117,8 @@ export enum SURAH{
     "An-Nas" = 114
 }
 interface IProps {
-    surat: number
+    surat: number | string | undefined
     ayat?: number,
-    
 }
 export const getQuran = (params: IProps) : string =>  {
     let result = '/quran'
