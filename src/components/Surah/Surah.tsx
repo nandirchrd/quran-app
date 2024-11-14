@@ -16,7 +16,7 @@ const Surah: React.FC<IProps["Surah"]> = ({ surah }) => {
   const [prevAudio, setPrevAudio] = useState<HTMLAudioElement>();
   const [toggleAudio, setToggleAudio] = useState<boolean>(true);
   const [audioEnded, setAudioEnded] = useState<boolean | undefined>(false);
-  const [search] = useContext(SearchContext);
+  const [search, setSearch] = useContext(SearchContext);
 
   useEffect(() => {
     axios
@@ -30,7 +30,8 @@ const Surah: React.FC<IProps["Surah"]> = ({ surah }) => {
         setError(err);
         setLoading(false);
       });
-  }, [surah]);
+    return () => setSearch("");
+  }, [surah, setSearch]);
 
   const playAudio = (url: string) => {
     setPrevURL(url);
