@@ -1,16 +1,16 @@
-import React from 'react';
-import { Navbar, Surah as CompSurah } from '../components';
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+
+import { Navbar, Surah as ComponentSurah } from "../components";
 
 const Surah = () => {
-	const { surah } = useParams();
+  const { surah = "" } = useParams();
 
-	return (
-		<div>
-			<Navbar back={true} />
-			<CompSurah surah={surah} />
-		</div>
-	);
+  return (
+    <div>
+      <Navbar back={true} />
+      <ComponentSurah surah={surah} />
+    </div>
+  );
 };
 
 export default Surah;

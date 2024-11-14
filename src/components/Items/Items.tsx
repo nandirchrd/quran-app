@@ -1,34 +1,39 @@
-import React from 'react';
-import useFetch from '../../hooks/useFetch';
-import Item from '../Item/Item';
-import { IState } from '../../types/intefaces';
+import { useContext } from "react";
 
-const Lists = () => {
-	const [datas, isLoading, error] = useFetch<IState['datas']>('/quran');
+import { IProps } from "../../types/interfaces";
+import { Item, Loading } from "..";
+import { SearchContext } from "../../contexts/searchContext";
 
-	console.log(datas);
+const Items: React.FC<IProps["Items"]> = ({ data, error, isLoading }) => {
+  const [search] = useContext(SearchContext);
 
-	return (
-		<section>
-			<div className='container flex mx-auto flex-col gap-1 px-4 text-xs'>
-				{isLoading ? (
-					<h1 className='text-center'>Loading ...</h1>
-				) : error ? (
-					<h1 className='text-center'>{error}</h1>
-				) : (
-					datas?.map((item) => (
-						<Item
-							key={item.number}
-							asma={item.asma}
-							ayahCount={item.ayahCount}
-							number={item.number}
-							type={item.type.en}
-						/>
-					))
-				)}
-			</div>
-		</section>
-	);
+  if (search) {
+    data = data.filter(
+      data => data.asma.id.short.search(new RegExp(`^${search}`, "i")) !== -1
+    );
+  }
+
+  return (
+    <section>
+      <div className="container flex mx-auto flex-col gap-1 px-4 text-xs">
+        {isLoading ? (
+          <Loading />
+        ) : error ? (
+          <h1 className="text-center">{error}</h1>
+        ) : (
+          data.map(item => (
+            <Item
+              key={item.number}
+              asma={item.asma}
+              ayahCount={item.ayahCount}
+              number={item.number}
+              type={item.type.en}
+            />
+          ))
+        )}
+      </div>
+    </section>
+  );
 };
 
-export default Lists;
+export default Items;
