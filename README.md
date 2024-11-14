@@ -1,46 +1,56 @@
-# Getting Started with Create React App
+# Quran-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Quran-App](https://cdn3d.iconscout.com/3d/premium/thumb/quran-3d-icon-download-in-png-blend-fbx-gltf-file-formats--book-holy-religion-pray-ramadan-pack-islam-icons-6324578.png) <!-- Tambahkan logo proyek jika ada -->
 
-## Available Scripts
+**Quran-App** adalah aplikasi simple untuk membaca dan mencari ayat-ayat dalam Al-Qur'an dengan tampilan yang ringan.
 
-In the project directory, you can run:
+## Fitur
 
-### `npm start`
+- **Pembacaan Al-Qur'an:** Tampilkan teks lengkap Al-Qur'an dalam bahasa Arab dan Latin.
+- **Terjemahan Al-Qur'an:** Tampilkan terjemahan dalam bahasa inggris.
+- **Pencarian Surat & Ayat:** Temukan surat berdasarkan kata kunci dan nomor.
+- **Audio Tilawah:** Dengarkan bacaan Al-Qur'an dengan audio.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Demo
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Quran-App](https://quran-app-bayrack.netlify.app/images/demo.png)
+- [=============== Demo APP (Open Here) ===============](https://quran-app-bayrack.netlify.app)
 
-### `npm test`
+## Teknologi yang Digunakan
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend:** [React JS](https://reactjs.org), [Typescript](https://www.typescriptlang.org)
+- **API:** [Quran API](https://quran-endpoint.vercel.app)
+- **UI:** [Tailwind CSS](https://tailwindcss.com)
 
-### `npm run build`
+## Instalasi
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Berikut langkah-langkah untuk menjalankan proyek ini secara lokal:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone repository ini**:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   git clone https://github.com/nandirchrd/quran-app.git
+   cd quran-app
+   ```
 
-### `npm run eject`
+2. **Instal dependencies**:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```bash
+   npm install
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Menjalankan aplikasi**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```bash
+   npm start
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   Aplikasi akan berjalan di `http://localhost:3000`.
 
-## Learn More
+## Lisensi
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Proyek ini dilisensikan di bawah [MIT License](https://opensource.org/license/mit).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Kredit
+
+Terima kasih kepada para pengembang / komunitas yang telah menyediakan API yang digunakan dalam aplikasi ini.

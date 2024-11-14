@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body, html{
-    @apply bg-netral text-primary
+body,
+html {
+    @apply bg-netral text-primary;
+    width: 100%;
+    min-height: 100vh;
 }
