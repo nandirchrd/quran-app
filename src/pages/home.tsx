@@ -15,8 +15,6 @@ const Home = () => {
       .then(res => {
         setQuran(res.data.data);
         setLoading(false);
-
-        console.log(res.data.data);
       })
       .catch(err => setError(err));
   }, []);

@@ -24,7 +24,6 @@ const Surah: React.FC<IProps["Surah"]> = ({ surah }) => {
       .then(res => {
         setData(res.data.data);
         setLoading(false);
-        console.log(res.data.data);
       })
       .catch(err => {
         setError(err);
@@ -64,11 +63,6 @@ const Surah: React.FC<IProps["Surah"]> = ({ surah }) => {
     }
   };
 
-  let filtered = data?.ayahs;
-  if (search) {
-    filtered = data?.ayahs.filter(data => `${data.number.insurah}` === search);
-  }
-
   return (
     <section>
       <div className="container flex mx-auto flex-col gap-1 px-4 text-xs">
@@ -92,7 +86,7 @@ const Surah: React.FC<IProps["Surah"]> = ({ surah }) => {
               </div>
             </header>
             <div>
-              {filtered?.map(ayah => (
+              {data?.ayahs?.map(ayah => (
                 <div className="flex flex-col py-3" key={ayah.number.insurah}>
                   <div className="flex justify-between items-center gap-1">
                     <div className="flex items-center justify-center bg-primary w-5 h-5 text-netral text-[0.5em] font-medium p-2 rounded-full">
